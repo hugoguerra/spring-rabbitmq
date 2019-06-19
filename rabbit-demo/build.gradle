@@ -1,0 +1,29 @@
+plugins {
+	id 'org.springframework.boot' version '2.1.4.RELEASE'
+	id 'java'
+}
+
+apply plugin: 'io.spring.dependency-management'
+
+group = 'test'
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = '1.8'
+
+repositories {
+	mavenCentral()
+}
+
+dependencies {
+	implementation 'org.springframework.boot:spring-boot-starter-amqp'
+	implementation 'org.springframework.boot:spring-boot-starter-web'
+
+	testImplementation 'org.springframework.boot:spring-boot-starter-test'
+
+	testCompile("junit:junit:4.12")
+	testCompile("org.apache.qpid:qpid-broker:6.0.4")
+	testCompile("ch.qos.logback:logback-classic:1.1.5")
+	testCompile("ch.qos.logback:logback-core:1.1.5")
+
+	compile group: 'org.springframework.amqp', name: 'spring-rabbit', version: '2.1.5.RELEASE'
+	compile group: 'org.springframework.boot', name: 'spring-boot-starter-cloud-connectors'
+}
